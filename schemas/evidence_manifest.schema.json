@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.geraldrobert.com/schemas/signal-to-proof/evidence-manifest-v1.json",
+  "title": "Signal-to-Proof Evidence Manifest",
+  "type": "object",
+  "required": [
+    "version",
+    "project_name",
+    "decision",
+    "dataset",
+    "measurement",
+    "design",
+    "economics"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "object",
+      "required": [
+        "question",
+        "decision_options",
+        "required_evidence_grade"
+      ]
+    },
+    "dataset": {
+      "type": "object",
+      "required": [
+        "path",
+        "grain",
+        "unit_column",
+        "time_column"
+      ]
+    },
+    "measurement": {
+      "type": "object",
+      "required": [
+        "exposure_column",
+        "outcome_column",
+        "controls"
+      ]
+    },
+    "design": {
+      "type": "object",
+      "required": [
+        "type"
+      ]
+    },
+    "economics": {
+      "type": "object",
+      "required": [
+        "decision_exposure",
+        "test_cost",
+        "error_cost_fraction",
+        "uncertainty_fraction"
+      ]
+    }
+  }
+}

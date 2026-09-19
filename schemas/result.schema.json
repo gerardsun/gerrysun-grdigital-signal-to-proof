@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.geraldrobert.com/schemas/signal-to-proof/result-v1.json",
+  "title": "Signal-to-Proof Result",
+  "type": "object",
+  "required": [
+    "scenario",
+    "decision",
+    "gates",
+    "evidence_grade",
+    "allowed_claim",
+    "blocked_claim",
+    "next_evidence_step"
+  ]
+}

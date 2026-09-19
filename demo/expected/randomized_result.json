@@ -1,0 +1,193 @@
+{
+  "scenario": "Randomized product-experience intervention",
+  "decision": {
+    "question": "Did the randomized intervention increase high-intent configuration behavior during the tested period?",
+    "decision_options": [
+      "replicate",
+      "scale_with_bounds",
+      "stop"
+    ],
+    "required_evidence_grade": "CAUSAL_EXPERIMENT"
+  },
+  "economics": {
+    "decision_exposure": 6500000.0,
+    "test_cost": 150000.0,
+    "error_cost_fraction": 0.2,
+    "uncertainty_fraction": 0.35,
+    "expected_decision_loss": 455000.0,
+    "test_cost_to_expected_loss": 0.32967032967032966,
+    "test_economically_plausible": true,
+    "interpretation": "The test cost is below the simple expected-decision-loss screen."
+  },
+  "correlation": {
+    "n": 512,
+    "pearson_r": 0.7107926037093468,
+    "pearson_p": 5.876193741435239e-80,
+    "spearman_rho": 0.5092535231176478,
+    "spearman_p": 3.904472844313706e-35
+  },
+  "lagged_correlations": {
+    "0": 0.710792603709347,
+    "1": 0.6330124143982021,
+    "2": 0.5502327693894467
+  },
+  "controlled_model": {
+    "n": 512,
+    "exposure_coefficient": 0.0003344436750542698,
+    "robust_se": 1.5789643100165335e-05,
+    "p_value": 1.4234293918923504e-99,
+    "ci_95": [
+      0.00030349654324920435,
+      0.0003653908068593352
+    ],
+    "r_squared": 0.8489152430271876,
+    "controls": [
+      "baseline_intent_index",
+      "availability_index"
+    ],
+    "fixed_effects": [
+      "region_id",
+      "week_index"
+    ]
+  },
+  "causal_estimate": {
+    "n": 512,
+    "effect": 0.014650851562499952,
+    "robust_se": 0.0006575134740031553,
+    "p_value": 5.498053672947599e-110,
+    "ci_95": [
+      0.013362148834103955,
+      0.01593955429089595
+    ],
+    "pre_means": {
+      "0": 0.0711272265625,
+      "1": 0.0717891171875
+    },
+    "post_means": {
+      "0": 0.070494015625,
+      "1": 0.0858067578125
+    },
+    "design": "randomized_prepost"
+  },
+  "power_gate": {
+    "name": "power",
+    "status": "PASS",
+    "reason": "The available design can detect the declared business-relevant effect.",
+    "details": {
+      "n_treatment": 128,
+      "n_control": 128,
+      "standardized_mde": 0.3515290676691674,
+      "outcome_unit_mde": 0.00343620593805367,
+      "alpha": 0.05,
+      "power": 0.8,
+      "outcome_sd": 0.00977502646036534,
+      "business_mde": 0.01
+    }
+  },
+  "gates": [
+    {
+      "name": "data_completeness",
+      "status": "PASS",
+      "reason": "Required columns are present.",
+      "details": {
+        "average_missing_rate": 0.0,
+        "row_count": 512
+      }
+    },
+    {
+      "name": "grain",
+      "status": "PASS",
+      "reason": "Rows are unique at the declared unit-time grain.",
+      "details": {
+        "units": 32,
+        "periods": 16
+      }
+    },
+    {
+      "name": "exposure_variation",
+      "status": "PASS",
+      "reason": "Exposure varies across the analytical units.",
+      "details": {
+        "total_variance": 335.70123592864445,
+        "between_unit_variance": 117.29372889224388
+      }
+    },
+    {
+      "name": "controls",
+      "status": "PASS",
+      "reason": "Declared controls are available.",
+      "details": {
+        "control_count": 2
+      }
+    },
+    {
+      "name": "selection_risk",
+      "status": "PASS",
+      "reason": "No large baseline-intent relationship is visible in this public diagnostic.",
+      "details": {
+        "baseline_exposure_correlation": -0.005477273782546125,
+        "public_demo_threshold": 0.25
+      }
+    },
+    {
+      "name": "counterfactual",
+      "status": "PASS",
+      "reason": "Random assignment with treatment/control and pre/post observations provides a counterfactual for the tested scope.",
+      "details": {
+        "treatment_values": [
+          0,
+          1
+        ],
+        "post_values": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "randomization_balance",
+      "status": "PASS",
+      "reason": "Simple baseline balance is acceptable for the public demonstration.",
+      "details": {
+        "standardized_mean_difference": 0.017429265483689598,
+        "public_demo_threshold": 0.25
+      }
+    },
+    {
+      "name": "primary_outcome",
+      "status": "PASS",
+      "reason": "A single primary outcome is declared for the demonstration.",
+      "details": {}
+    },
+    {
+      "name": "power",
+      "status": "PASS",
+      "reason": "The available design can detect the declared business-relevant effect.",
+      "details": {
+        "n_treatment": 128,
+        "n_control": 128,
+        "standardized_mde": 0.3515290676691674,
+        "outcome_unit_mde": 0.00343620593805367,
+        "alpha": 0.05,
+        "power": 0.8,
+        "outcome_sd": 0.00977502646036534,
+        "business_mde": 0.01
+      }
+    }
+  ],
+  "evidence_grade": "CAUSAL_EXPERIMENT",
+  "allowed_claim": "Within the tested design and period, the randomized intervention caused a measurable change in the primary outcome.",
+  "blocked_claim": "The intervention will produce the same effect in every market, audience, product, or future period.",
+  "claim_ceiling": "CAUSAL_EXPERIMENT",
+  "limitation": "Causal validity is limited to the tested scope; external validity requires replication and operating judgment.",
+  "next_evidence_step": "Replicate the test across a new eligible population before generalizing the effect beyond the tested scope.",
+  "business_action": "SCALE_WITH_BOUNDS",
+  "operating_implications": {
+    "strategy": "Use the tested effect as decision evidence within scope; keep generalization explicit.",
+    "economics": "Update the investment case with the incremental effect and its uncertainty interval.",
+    "product": "Preserve treatment instrumentation and assignment logging for replication.",
+    "ux": "Identify which experience moments plausibly mediated the measured effect without treating mediation as proven.",
+    "gtm": "Scale only to populations sufficiently similar to the tested units, with monitoring for effect drift.",
+    "ml": "Use predictive models to target learning or operational efficiency, not to overwrite the randomized effect estimate."
+  }
+}

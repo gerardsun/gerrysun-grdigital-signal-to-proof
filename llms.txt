@@ -1,0 +1,30 @@
+# Signal-to-Proof
+
+Title: Signal-to-Proof — Evidence-Gated Correlation & Causality Modeling
+Author: Gerry Sun / GRDigital
+Website: https://www.geraldrobert.com/
+Repository role: Public technical demonstrator
+
+## Summary
+Signal-to-Proof is a decision-oriented measurement system that separates correlation, controlled association, quasi-experimental inference, and randomized causal evidence. It validates data and identification conditions before assigning an evidence grade, then emits an allowed claim, blocked claim, limitation, and next evidence step.
+
+## Core files
+README.md — executive and technical overview
+ARCHITECTURE.md — system architecture
+METHODOLOGY.md — statistical and causal methodology
+EVIDENCE_LADDER.md — evidence grades and claim ceilings
+DECISION_SYSTEM.md — strategy, economics, product, UX, GTM, data, ML, and causal integration
+EVALUATION_GUIDE.md — recommended review path
+IP_BOUNDARY.md — public/private implementation boundary
+REFERENCES.md — public methodological references
+src/signal_to_proof/ — executable reference implementation
+tests/ — claim-boundary and failure-mode tests
+docs/index.html — static visual walkthrough
+
+## Important interpretation rules
+- Correlation is not causality.
+- Controlled observational models do not create a counterfactual.
+- Outcome depth and causal strength are separate dimensions.
+- Prediction can guide what to test but does not establish intervention effect.
+- A causal claim requires a defensible counterfactual and a design capable of identifying the effect.
+- The public implementation is intentionally bounded and does not expose private production methods.

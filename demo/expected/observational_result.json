@@ -1,0 +1,139 @@
+{
+  "scenario": "Considered-purchase observational measurement",
+  "decision": {
+    "question": "Should the business increase investment in educational product experiences based on the observed relationship with high-intent configuration behavior?",
+    "decision_options": [
+      "scale",
+      "maintain",
+      "redesign",
+      "test"
+    ],
+    "required_evidence_grade": "CONTROLLED_ASSOCIATION"
+  },
+  "economics": {
+    "decision_exposure": 4000000.0,
+    "test_cost": 120000.0,
+    "error_cost_fraction": 0.18,
+    "uncertainty_fraction": 0.45,
+    "expected_decision_loss": 324000.0,
+    "test_cost_to_expected_loss": 0.37037037037037035,
+    "test_economically_plausible": true,
+    "interpretation": "The test cost is below the simple expected-decision-loss screen."
+  },
+  "correlation": {
+    "n": 624,
+    "pearson_r": 0.7055565719898474,
+    "pearson_p": 4.222653577489117e-95,
+    "spearman_rho": 0.6853524068003721,
+    "spearman_p": 9.826131329814525e-88
+  },
+  "lagged_correlations": {
+    "0": 0.7055565719898479,
+    "1": 0.5037650612091662,
+    "2": 0.4822680259439349,
+    "4": 0.4364418591691016
+  },
+  "controlled_model": {
+    "n": 624,
+    "exposure_coefficient": 0.00020701526612803352,
+    "robust_se": 4.043772622096979e-05,
+    "p_value": 3.0657473521153165e-07,
+    "ci_95": [
+      0.00012775877911824174,
+      0.00028627175313782527
+    ],
+    "r_squared": 0.7876155560869879,
+    "controls": [
+      "baseline_intent_index",
+      "paid_media_index",
+      "availability_index",
+      "offer_index",
+      "launch_phase"
+    ],
+    "fixed_effects": [
+      "region_id",
+      "week_index"
+    ]
+  },
+  "causal_estimate": null,
+  "power_gate": null,
+  "gates": [
+    {
+      "name": "data_completeness",
+      "status": "PASS",
+      "reason": "Required columns are present.",
+      "details": {
+        "average_missing_rate": 0.0,
+        "row_count": 624
+      }
+    },
+    {
+      "name": "grain",
+      "status": "PASS",
+      "reason": "Rows are unique at the declared unit-time grain.",
+      "details": {
+        "units": 24,
+        "periods": 26
+      }
+    },
+    {
+      "name": "exposure_variation",
+      "status": "PASS",
+      "reason": "Exposure varies across the analytical units.",
+      "details": {
+        "total_variance": 72.16836030320448,
+        "between_unit_variance": 24.789099431063317
+      }
+    },
+    {
+      "name": "controls",
+      "status": "PASS",
+      "reason": "Declared controls are available.",
+      "details": {
+        "control_count": 5
+      }
+    },
+    {
+      "name": "selection_risk",
+      "status": "WARN",
+      "reason": "Exposure is materially related to baseline intent; self-selection remains plausible.",
+      "details": {
+        "baseline_exposure_correlation": 0.7104878355990756,
+        "public_demo_threshold": 0.25
+      }
+    },
+    {
+      "name": "counterfactual",
+      "status": "FAIL",
+      "reason": "No randomized or otherwise identified counterfactual is declared in the observational design.",
+      "details": {}
+    },
+    {
+      "name": "randomization_balance",
+      "status": "NOT_APPLICABLE",
+      "reason": "Not a randomized design.",
+      "details": {}
+    },
+    {
+      "name": "primary_outcome",
+      "status": "PASS",
+      "reason": "A single primary outcome is declared for the demonstration.",
+      "details": {}
+    }
+  ],
+  "evidence_grade": "CONTROLLED_ASSOCIATION",
+  "allowed_claim": "Exposure is associated with the primary outcome after the declared measured controls and fixed effects.",
+  "blocked_claim": "Exposure caused the observed outcome change or incremental business value.",
+  "claim_ceiling": "CONTROLLED_ASSOCIATION",
+  "limitation": "Unobserved selection, reverse causality, or residual time-varying confounding may still explain part of the relationship.",
+  "next_evidence_step": "Design a powered randomized or geo-based holdout around the primary decision before scaling the claim to incrementality.",
+  "business_action": "PROVE_BEFORE_SCALE",
+  "operating_implications": {
+    "strategy": "Treat the relationship as a prioritization signal, not proof of incremental value.",
+    "economics": "Use the result to decide whether stronger evidence is worth funding.",
+    "product": "Improve event taxonomy, exposure logging, identity continuity, and treatment instrumentation.",
+    "ux": "Use observed progression and friction as hypotheses for redesign and testing.",
+    "gtm": "Prioritize the associated audience or journey hypothesis for a controlled activation rather than claiming lift.",
+    "ml": "Use prediction and segmentation to focus the test surface while keeping effect estimation separate."
+  }
+}

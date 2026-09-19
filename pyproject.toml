@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signal-to-proof"
+version = "1.0.0"
+description = "Evidence-gated correlation and causality modeling public demonstrator."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Gerry Sun" }
+]
+dependencies = [
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<3",
+  "scipy>=1.13,<2",
+  "statsmodels>=0.14,<1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10"
+]
+
+[project.scripts]
+signal-to-proof = "signal_to_proof.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Signal-to-Proof — Evidence-Gated Correlation & Causality Modeling by Gerry Sun / GRDigital." />
+  <title>Signal-to-Proof | Gerry Sun / GRDigital</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="shell">
+    <div class="brand">
+      <strong>GRDIGITAL / SIGNAL-TO-PROOF</strong>
+      <nav><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#demo">Demo</a><a href="https://www.geraldrobert.com/">GRDigital</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div>
+        <div class="eyebrow">Evidence-Gated Correlation & Causality Modeling</div>
+        <h1>Signal-to-Proof</h1>
+        <p class="subtitle">A working measurement system for deciding when observed relationships are useful correlations, when stronger inference is defensible, and what evidence must exist before a causal claim is allowed.</p>
+        <p class="byline">A public technical demonstrator by Gerry Sun / GRDigital</p>
+      </div>
+      <div class="hero-note">
+        <strong>The governing rule</strong>
+        A more sophisticated model is not automatically stronger evidence. Stronger evidence requires stronger identification.
+      </div>
+    </section>
+
+    <section class="section shell" id="system">
+      <div class="eyebrow">System-level thinking</div>
+      <h2>Correlation and causal inference sit inside a larger decision system.</h2>
+      <div class="flow">
+        <div class="node"><b>1. Decision</b><span class="small">What commitment is leadership considering?</span></div>
+        <div class="node"><b>2. Economics</b><span class="small">What is the value at risk and cost of being wrong?</span></div>
+        <div class="node"><b>3. Behavior</b><span class="small">What product and UX signals can actually be observed?</span></div>
+        <div class="node"><b>4. Evidence</b><span class="small">What can correlation, controls, and identification support?</span></div>
+        <div class="node"><b>5. Action</b><span class="small">Scale, test, redesign, maintain, or stop.</span></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="evidence">
+      <div class="eyebrow">Evidence ladder</div>
+      <h2>The output is graded by design strength, not by how impressive the model looks.</h2>
+      <div class="ladder">
+        <div class="rung active">Observed signal</div>
+        <div class="rung active">Directional association</div>
+        <div class="rung active" id="rung-controlled">Controlled association</div>
+        <div class="rung">Matched association</div>
+        <div class="rung">Quasi-experimental</div>
+        <div class="rung" id="rung-causal">Causal experiment</div>
+      </div>
+    </section>
+
+    <section class="section shell" id="demo">
+      <div class="eyebrow">Compare two designs</div>
+      <h2>Same business pressure. Different evidence. Different claim ceiling.</h2>
+      <div class="tabs">
+        <button class="tab active" data-scenario="observational">Observational relationship</button>
+        <button class="tab" data-scenario="randomized">Randomized intervention</button>
+      </div>
+      <div class="grid">
+        <div class="card span-6">
+          <div class="kicker">Evidence grade</div>
+          <div class="metric" id="evidence-grade">CONTROLLED ASSOCIATION</div>
+          <p class="small">What the design has earned the right to say.</p>
+        </div>
+        <div class="card span-6">
+          <div class="kicker">Business action</div>
+          <div class="metric" id="business-action">PROVE BEFORE SCALE</div>
+          <p class="small">How the analytical result changes the operating decision.</p>
+        </div>
+        <div class="card span-6">
+          <div class="kicker">Raw correlation</div>
+          <div class="metric" id="raw-correlation">r = 0.706</div>
+          <p class="small">Useful signal, not a causal conclusion.</p>
+        </div>
+        <div class="card span-6">
+          <div class="kicker">Adjusted / causal effect</div>
+          <div class="metric" id="model-effect">β 0.00021</div>
+          <p class="small">Interpretation changes with the identification design.</p>
+        </div>
+      </div>
+      <div class="grid" id="gate-list" style="margin-top:18px"></div>
+      <div class="grid" style="margin-top:18px">
+        <div class="card span-6 allowed">
+          <div class="kicker">Allowed claim</div>
+          <p class="claim" id="allowed-claim"></p>
+        </div>
+        <div class="card span-6 blocked">
+          <div class="kicker">Blocked claim</div>
+          <p class="claim" id="blocked-claim"></p>
+        </div>
+        <div class="card span-12">
+          <div class="kicker">Next evidence step</div>
+          <p class="claim" id="next-step"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="grid">
+        <div class="card span-8">
+          <div class="eyebrow">Cross-disciplinary build</div>
+          <blockquote>Strategy frames the choice. Economics defines the stakes. Product and UX create the observable signals. Data engineering makes them usable. Statistics measures the relationship. Causal inference determines effect. GTM turns evidence into action.</blockquote>
+        </div>
+        <div class="card span-4">
+          <div class="kicker">Core principle</div>
+          <p class="metric">Prediction is not effect.</p>
+          <p class="small">ML can help identify who is likely to move. Causal inference asks what changed because the system intervened.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <strong>Signal-to-Proof</strong><br />
+      Evidence-Gated Correlation & Causality Modeling<br />
+      Gerry Sun / GRDigital · <a href="https://www.geraldrobert.com/">geraldrobert.com</a>
+      <p class="small">Public technical demonstrator. Synthetic data only. Production methods and private implementation logic are intentionally excluded.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

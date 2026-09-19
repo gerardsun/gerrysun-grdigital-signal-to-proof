@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "project_name": "Considered-purchase observational measurement",
+  "decision": {
+    "question": "Should the business increase investment in educational product experiences based on the observed relationship with high-intent configuration behavior?",
+    "decision_options": [
+      "scale",
+      "maintain",
+      "redesign",
+      "test"
+    ],
+    "required_evidence_grade": "CONTROLLED_ASSOCIATION"
+  },
+  "dataset": {
+    "path": "../data/observational_signals.csv",
+    "grain": "region_week",
+    "unit_column": "region_id",
+    "time_column": "week_index"
+  },
+  "measurement": {
+    "exposure_column": "education_exposure_index",
+    "outcome_column": "configuration_rate",
+    "baseline_intent_column": "baseline_intent_index",
+    "controls": [
+      "baseline_intent_index",
+      "paid_media_index",
+      "availability_index",
+      "offer_index",
+      "launch_phase"
+    ],
+    "fixed_effects": [
+      "region_id",
+      "week_index"
+    ],
+    "lags": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "primary_outcome": true
+  },
+  "design": {
+    "type": "observational"
+  },
+  "economics": {
+    "decision_exposure": 4000000,
+    "test_cost": 120000,
+    "error_cost_fraction": 0.18,
+    "uncertainty_fraction": 0.45
+  }
+}

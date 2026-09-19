@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you reference Signal-to-Proof, please cite this repository."
+title: "Signal-to-Proof: Evidence-Gated Correlation & Causality Modeling"
+type: software
+authors:
+  - family-names: Sun
+    given-names: Gerry H.
+    alias: Gerry Sun
+version: 1.0.0
+date-released: 2026-09-19
+url: "https://www.geraldrobert.com/"
+license: "LicenseRef-Evaluation-Only"
+abstract: "A public technical demonstrator for evidence-gated correlation, causal inference, claim control, power analysis, and decision-oriented measurement."

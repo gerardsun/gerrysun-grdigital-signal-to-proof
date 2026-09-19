@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "project_name": "Randomized product-experience intervention",
+  "decision": {
+    "question": "Did the randomized intervention increase high-intent configuration behavior during the tested period?",
+    "decision_options": [
+      "replicate",
+      "scale_with_bounds",
+      "stop"
+    ],
+    "required_evidence_grade": "CAUSAL_EXPERIMENT"
+  },
+  "dataset": {
+    "path": "../data/randomized_signals.csv",
+    "grain": "region_week",
+    "unit_column": "region_id",
+    "time_column": "week_index"
+  },
+  "measurement": {
+    "exposure_column": "treatment_exposure_index",
+    "outcome_column": "configuration_rate",
+    "baseline_intent_column": "baseline_intent_index",
+    "controls": [
+      "baseline_intent_index",
+      "availability_index"
+    ],
+    "fixed_effects": [
+      "region_id",
+      "week_index"
+    ],
+    "lags": [
+      0,
+      1,
+      2
+    ],
+    "primary_outcome": true
+  },
+  "design": {
+    "type": "randomized",
+    "treatment_column": "treatment_group",
+    "post_column": "post_period",
+    "alpha": 0.05,
+    "power": 0.8,
+    "business_mde": 0.01
+  },
+  "economics": {
+    "decision_exposure": 6500000,
+    "test_cost": 150000,
+    "error_cost_fraction": 0.2,
+    "uncertainty_fraction": 0.35
+  }
+}
